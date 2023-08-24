@@ -1,16 +1,24 @@
-<div class="col-5">
-  <div>
-    <h1>All lists</h1>
+<header class="header d-flex justify-content-center align-items-center ">
+  <h1>All lists</h1>
+</header>
 
-    <ul>
-      <% @lists.each do |list| %>
-      <li> <%= list.name %>
-      <% end %>
-      </li>
-    </ul>
-
-    <h2>Create a new list</h2>
-
-    <%= render "form" %>
+<body>
+  <div class="container">
+    <div>
+      <div class="d-flex card_grid">
+        <% @lists.each do |list| %>
+            <div class="card text-center" style="background-image: url('https://images.unsplash.com/photo-1543536448-d209d2d13a1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80')">
+              <%= list.name %>
+            </div>
+        <% end %>
+      </div>
+      <div>
+        <h3>Create a new list</h3>
+      
+        <div class="col-3">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</body>
