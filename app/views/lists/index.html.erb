@@ -5,17 +5,21 @@
 <body>
   <div class="container">
     <div>
-      <div class="d-flex card_grid">
+      <div class="card_grid">
         <% @lists.each do |list| %>
             <% if list.photo.attached? %>
             <div class="card text-center" style="background-image: url('<%= cl_image_path @list.photo.key%>')">
             <%= link_to list.name, list_path(list), style: "text-decoration: none; color:white" %>
-            <%= link_to "x", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color:white" do %>
+              <i class="fa-solid fa-trash-can"></i>
+                <% end %>
             </div>
             <% else  %>
             <div class="card text-center" style="background-image: url('https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80')">
             <%= link_to list.name, list_path(list), style: "text-decoration: none; color:white" %>
-            <%= link_to "x", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color:white" do %>
+              <i class="fa-solid fa-trash-can"></i>
+                <% end %>
             </div>
             <% end %>
         <% end %>
